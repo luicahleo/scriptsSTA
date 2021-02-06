@@ -1,0 +1,58 @@
+LoadModule jk_module modules/mod_jk.so
+
+#
+# Mod_jk settings
+# Informaci n de las directivas en:
+# http://jakarta.apache.org/tomcat/connectors-doc/config/apache.html
+#
+   #Ubicacion del archivo workers.properties,
+   # relativa a /etc/httpd o absoluta
+   #En este caso estara  en /etc/httpd/con.d/workers.properties pero
+   # podria ser otro
+   JkWorkersFile "conf.d/mod_jk_workers.properties"
+
+   #Configuraci n de Logs
+   JkLogFile "logs/mod_jk.log"
+   JkLogLevel error
+
+   # Web JSP de entrada de Tomcat (inseguro)
+   #JkMount /*.jsp tomcat
+
+   #Genera autom ticamente las directivas Alias de Apache
+   JkAutoAlias /usr/share/tomcat/webapps
+   <Directory /usr/share/tomcat/webapps>
+        Order allow,deny
+        Allow from all
+   </Directory>
+
+   #Aplicaci n web "JSP examples". Se ver  en http://localhost/examples/
+   JkMount /examples/jsp/*.jsp tomcat
+   JkMount /examples/jsp/*.jspx tomcat
+   JkMount /examples/jsp/servlet/* tomcat
+
+   #Aplicaci n web "Servlets examples". 
+   #Se ver  en http://localhost/examples/servlets/
+   #Queremos que tomcat solo sirva las p ginas .jsp y .jspx y los servlets
+   JkMount /examples/servlets/*.jsp tomcat
+   JkMount /examples/servlets/*.jspx tomcat
+   JkMount /examples/servlets/servlet/* tomcat
+
+   #Aplicaci n web "tomcat-docs". Se ver  en http://localhost/docs/
+   #Queremos que tomcat solo sirva las p ginas .jsp y .jspx
+   JkMount /docs/*.jsp tomcat
+   JkMount /docs/*.jspx tomcat
+
+   #Aplicaci n web "manager". Se ver  en http://localhost/manager/html/
+   JkMount /manager/* tomcat
+
+   #Seguridad para las carpetas WEB-INF y META-INF
+   <LocationMatch "/WEB-INF/">
+	AllowOverride None
+	deny from all
+   </LocationMatch>
+   <LocationMatch "/META-INF/">
+	AllowOverride None
+	deny from all
+   </LocationMatch>
+
+#End of mod_jk settings

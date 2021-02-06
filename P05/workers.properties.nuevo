@@ -1,0 +1,17 @@
+# Información de las directivas en:
+# http://jakarta.apache.org/tomcat/connectors-doc/config/workers.html
+
+# Definicion de variables para la creacion de macros (opcional)
+# workers.tomcat_home=$CATALINA_HOME
+# workers.java_home=$JAVA_HOME
+# ps=/
+
+# Lista de workers a crear (con el nombre a asignar a cada uno)
+worker.list=tomcat
+
+# Configuracion de los workers (se estan usando los valores por omision,
+# luego podrian comentarse las lineas siguientes)
+worker.tomcat.port=8009
+worker.tomcat.host=localhost
+worker.tomcat.type=ajp13
+

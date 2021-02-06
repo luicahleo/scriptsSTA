@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+  <!-- Descripcion del servlet -->
+  <display-name>Ejemplo de uso de Servlets</display-name>
+  <description>
+     Ejemplo de uso de JSP/Servlets
+  </description>
+  
+  <!-- Servlets utilizados -->
+  <servlet>
+     <servlet-name>Saludo</servlet-name>
+     <servlet-class>Saludo</servlet-class>
+  </servlet>
+
+  <!-- Mapeado de los servlets con las direcciones URL a que atienden y corresponden -->
+  <servlet-mapping>
+        <servlet-name>Saludo</servlet-name>
+        <url-pattern>/servlets/Saludo</url-pattern>
+  </servlet-mapping>
+  <!-- El contexto Tomcat debe estar configurado para interpretar bajo /servlets -->
+  
+</web-app>

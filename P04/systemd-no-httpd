@@ -1,0 +1,6 @@
+systemctl stop httpd >& /dev/nul
+systemctl disable httpd >& /dev/nul
+systemctl daemon-reload >& /dev/nul
+systemctl reset-failed >& /dev/nul
+mkdir /lib/systemd/bck/ >& /dev/nul
+mv /lib/systemd/system/httpd.service /lib/systemd/bck/httpd.service-bck >& /dev/nul

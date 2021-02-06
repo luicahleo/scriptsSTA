@@ -1,0 +1,10 @@
+AuthName "Acceso a pagina dit"
+AuthType Basic
+AuthUserFile /home/dit/public_html/.htpasswd
+AuthGroupFile /home/dit/public_html/.htgroup
+<Limit POST>
+   Require user dit1
+</Limit>
+<LimitExcept POST>
+  Require valid-user
+</LimitExcept>

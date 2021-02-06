@@ -1,0 +1,14 @@
+# Proteccion por password
+AuthName "Acceso a pagina dit"
+AuthType Basic
+AuthUserFile /home/dit/public_html/.htpasswd
+AuthGroupFile /home/dit/public_html/.htgroup
+Require valid-user
+
+# Proteccion por ubicacion
+Order deny,allow
+deny from all		# Su orden con allow es el de Order
+allow from 127.0.0
+
+# Valor por omision ("All")
+Satisfy All

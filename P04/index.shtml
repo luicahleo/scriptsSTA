@@ -1,0 +1,9 @@
+<html><body>
+<!--#config timefmt="%x" -->
+<p>Hoy es <!--#echo var="DATE_LOCAL" --></p>
+<!--#if expr="$REMOTE_ADDR != 172.16.17.1" -->
+ <p>IP navegador:
+ <!--#echo var="REMOTE_ADDR" --></p>
+<!--#endif -->
+</body></html>
+ 

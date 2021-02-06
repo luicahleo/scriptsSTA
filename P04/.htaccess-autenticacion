@@ -1,0 +1,6 @@
+AuthName "Acceso a pagina dit"
+AuthType Basic
+AuthUserFile /home/dit/public_html/.htpasswd
+AuthGroupFile /home/dit/public_html/.htgroup
+Require user dit3
+Require group gdit
